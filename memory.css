@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: #ffe5ec;
+}
+
+@font-face {
+    font-family: "Pixellari", arial;
+    src: url('memory-game-assignment/Pixellari.ttf');
+}
+
+.header_title {
+    background-color: #ffb3c6;
+    color: #fb6f92;
+    font-family: "Pixellari";
+    margin: 0;
+    font-size: 2rem;
+    padding: 28px;
+    text-align: center;
+}
+
+img {
+    max-width: 220px;
+    border-radius: 8px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    justify-self: center;
+    padding-top: 20px;
+}
+.reset {
+    border: none;
+    background-color: #fb6f92;
+    display: flex;
+    justify-content: center;
+    color: #faf2f4;
+    text-align: center;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 24px;
+}
+
+.footer {
+    background-color: #ffb3c6;
+    color: #fb6f92;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 26px;
+    text-align: center;
+    margin-top: 15px;
+}
