@@ -2,29 +2,41 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0px;
-    background-color: #ffe5ec;
-}
-
 @font-face {
     font-family: "Pixellari", arial;
-    src: url('memory-game-assignment/Pixellari.ttf');
+    src: url('./Pixellari.ttf');
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    font-family: "Pixellari";
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0px;
+    /*background-color: #ffe5ec;*/
+    background-image: url(images/pokemon-background.jpg);
 }
 
 .header_title {
     background-color: #ffb3c6;
     color: #fb6f92;
-    font-family: "Pixellari";
-    margin: 0;
     font-size: 2rem;
+    margin: 0;
     padding: 28px;
     text-align: center;
 }
 
 img {
-    max-width: 220px;
+    max-width: 250px;
     border-radius: 8px;
+}
+
+.main {
+    flex-grow: 1;
 }
 
 .game {
@@ -39,13 +51,14 @@ img {
 .reset {
     border: none;
     background-color: #fb6f92;
+    border-radius: 10px;
+    color: #faf2f4;
     display: flex;
     justify-content: center;
-    color: #faf2f4;
+    margin: auto;
     text-align: center;
-    border-radius: 10px;
     padding: 12px;
-    margin-top: 24px;
+    width: 150px;
 }
 
 .footer {

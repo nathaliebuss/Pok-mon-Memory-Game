@@ -14,7 +14,11 @@ let ditto = new memoryCards ("ditto", "images/ditto.jpg")
 
 let pokemons = [dragonite, mimikyu, snorlax, eevee, oshawatt, ditto]
 let deck = [...pokemons, ...pokemons];
-let cards = document.querySelectorAll(".game div") 
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+const cardsContainer = document.querySelector(".game");
 
 const shuffleDeck = () => {
     for (let i = deck.length - 1; i > 0; i--) {
@@ -23,11 +27,66 @@ const shuffleDeck = () => {
     }
 };
 
-let firstCard = ""
-let secondCard  = ""
-let score = 0
+const renderDeck = () => {
+    cardsContainer.innerHTML = ""; // clear container
 
-cards.forEach((card, index) => {
-    card.addEventListener("click", shuffleDeck())
-})
+    deck.forEach((card, index) => {
+        const div = document.createElement("div");
+        div.className = "card";
+
+        const img = document.createElement("img");
+        img.src = "images/back-card.jpg";
+        img.dataset.pokemon = card.image;  
+        img.alt = card.name;
+
+        div.addEventListener("click", () => {
+            if (lockBoard) return;
+            if (div === firstCard) return;
+
+            img.src = img.dataset.pokemon; // flip card
+
+            if (!firstCard) {
+                firstCard = div;
+            } else {
+                secondCard = div;
+                lockBoard = true;
+
+                const firstImg = firstCard.querySelector("img");
+                const secondImg = secondCard.querySelector("img");
+
+                if (firstImg.src === secondImg.src) {
+                    firstCard = null;
+                    secondCard = null;
+                    lockBoard = false;
+                } else {
+                    setTimeout(() => {
+                        firstImg.src = "images/back-card.jpg";
+                        secondImg.src = "images/back-card.jpg";
+                        firstCard = null;
+                        secondCard = null;
+                        lockBoard = false;
+                    }, 700);
+                }
+            }
+        });
+
+        div.appendChild(img);
+        cardsContainer.appendChild(div);
+    });
+};
+
+shuffleDeck();
+renderDeck();
+
+
+
+// RESET BUTTON
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.addEventListener("click", () => {
+    shuffleDeck(); 
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+    renderDeck();
+});
 
