@@ -19,6 +19,9 @@ body {
     margin: 0px;
     /*background-color: #ffe5ec;*/
     background-image: url(images/pokemon-background.jpg);
+    background-size:cover ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .header_title {
@@ -87,8 +90,8 @@ img {
         grid-template-columns: repeat(3, 1fr); 
         grid-template-rows: repeat(4, 1fr); 
         width: 98%; 
-        padding-top: 10px;
-        grid-gap: 8px;
+        padding: 10px;
+        grid-gap: 10px;
     }
 
     img {
@@ -97,6 +100,6 @@ img {
     }
 
     .reset {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 }
