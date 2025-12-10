@@ -31,23 +31,28 @@ body {
 }
 
 img {
-    max-width: 250px;
+    max-width: 220px; 
     border-radius: 8px;
 }
 
 .main {
     flex-grow: 1;
+    display: flex; 
+    justify-content: center;
 }
 
 .game {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto; 
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
-    justify-self: center;
     padding-top: 20px;
+    max-width: 900px;
+    width: 90%;
 }
+
 .reset {
     border: none;
     background-color: #fb6f92;
@@ -68,4 +73,30 @@ img {
     padding: 26px;
     text-align: center;
     margin-top: 15px;
+}
+/* ------------------------------------------- */
+
+/* MEDIA QUERIES iPhone 12 */
+@media (max-width: 576px) {
+    .header_title {
+        font-size: 1.5rem; 
+        padding: 20px;
+    }
+
+    .game {
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: repeat(4, 1fr); 
+        width: 98%; 
+        padding-top: 10px;
+        grid-gap: 8px;
+    }
+
+    img {
+        max-width: 100%; 
+        height: auto;
+    }
+
+    .reset {
+        margin-top: 20px;
+    }
 }
