@@ -100,7 +100,9 @@ const startGame = () => {
 };
 // ----------------------------------------------------
 
-// JQUERY
+// JQUERY for the start message
+
+//START BUTTON LOGIC//
 $(document).ready(function () {
   $("#start-btn").on("click", function () {
     $("#start-screen").fadeOut(500, function () {
@@ -110,6 +112,7 @@ $(document).ready(function () {
     });
   });
 
+  //RESET BUTTON LOGIC
   $("#reset-btn").on("click", function () {
     startGame();
   });
