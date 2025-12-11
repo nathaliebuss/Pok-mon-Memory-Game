@@ -17,6 +17,9 @@ let deck = [...pokemons, ...pokemons];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
+let moves = 0
+
+const movesCounter = document.getElementById(".movesCounter")
 const cardsContainer = document.querySelector(".game");
 
 //FOR LOOP TO SHUFFLE MEMORY CARDS
