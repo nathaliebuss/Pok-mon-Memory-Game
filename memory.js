@@ -17,9 +17,11 @@ let deck = [...pokemons, ...pokemons];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
-let moves = 0
+let moves = 0;
 
-const movesCounter = document.getElementById(".movesCounter")
+const totalPairs = 6;
+let matchedPairs = 0;
+const movesCounter = document.getElementById("moves-counter");
 const cardsContainer = document.querySelector(".game");
 
 //FOR LOOP TO SHUFFLE MEMORY CARDS
@@ -30,14 +32,17 @@ const shuffleDeck = () => {
   }
 };
 
-const resetBoard = () => {
-  firstCard = null;
-  secondCard = null;
-  lockBoard = false;
-  // Remove 'matched' class from all cards when resetting
-  document.querySelectorAll(".card").forEach((card) => {
-    card.classList.remove("matched");
-  });
+const startGame = () => {
+  resetBoard();
+  shuffleDeck();
+  renderDeck();
+};
+
+//UPDATE LOGIC FOR MOVES COUNTER
+const updateMoves = () => {
+  if (movesCounter) {
+    movesCounter.textContent = `Moves ${moves}`;
+  }
 };
 
 //CLICK LISTENER
@@ -54,6 +59,8 @@ const cardLogic = (div) => {
     } else {
       secondCard = div;
       lockBoard = true;
+      moves++;
+      updateMoves();
 
       const firstImg = firstCard.querySelector("img");
       const secondImg = secondCard.querySelector("img");
@@ -64,6 +71,7 @@ const cardLogic = (div) => {
         firstCard = null;
         secondCard = null;
         lockBoard = false;
+        matchedPairs++;
       } else {
         setTimeout(() => {
           firstImg.src = "images/back-card.jpg";
@@ -96,10 +104,18 @@ const renderDeck = () => {
   });
 };
 
-const startGame = () => {
-  resetBoard();
-  shuffleDeck();
-  renderDeck();
+const resetBoard = () => {
+  firstCard = null;
+  secondCard = null;
+  lockBoard = false;
+
+  moves = 0;
+  matchedPairs = 0;
+  updateMoves();
+
+  document.querySelectorAll(".card").forEach((card) => {
+    card.classList.remove("matched");
+  });
 };
 // ----------------------------------------------------
 
@@ -107,6 +123,8 @@ const startGame = () => {
 
 //START BUTTON LOGIC//
 $(document).ready(function () {
+  updateMoves();
+
   $("#start-btn").on("click", function () {
     $("#start-screen").fadeOut(500, function () {
       $("#game-container").css("display", "flex");
