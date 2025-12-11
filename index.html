@@ -5,30 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
     <link rel="stylesheet" href="memory.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script src="memory.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1 class="header_title">POKEMON MEMORY GAME</h1>
     </header>
-<div class="main">
-    <div class="game">
-    <div class="card1"> <img src="images/back-card.jpg"></div>
-    <div class="card1"> <img src="images/back-card.jpg"></div>
-    <div class="card2"> <img src="images/back-card.jpg"></div>
-    <div class="card2"> <img src="images/back-card.jpg"></div>
-    <div class="card3"> <img src="images/back-card.jpg"></div>
-    <div class="card3"> <img src="images/back-card.jpg"></div>
-    <div class="card4"> <img src="images/back-card.jpg"></div>
-    <div class="card4"> <img src="images/back-card.jpg"></div>
-    <div class="card5"> <img src="images/back-card.jpg"></div>
-    <div class="card5"> <img src="images/back-card.jpg"></div>
-    <div class="card6"> <img src="images/back-card.jpg"></div>
-    <div class="card6"> <img src="images/back-card.jpg"></div>
-    </div>
+
+    <div id="start-screen" class="splash-screen">
+        <h2>Welcome to Pokémon Memory!</h2>
+        <p>Find all the matching pairs and enjoy the game.</p>
+        <button id="start-btn" class="reset">Start Game!</button>
     </div>
 
-    <button class="reset" id="reset-btn">Reset Game</button>
+    <div id="game-container">
+        <div class="main">
+            <div class="game">
+                </div>
+        </div>
+        <button class="reset" id="reset-btn">Reset Game</button>
+    </div>
+
     <footer class="footer">ByNathalie</footer>
 </body>
 </html>
